@@ -1,0 +1,31 @@
+<?php
+
+return [
+
+    'login' => 'ログイン',
+    'email_address' => 'メールアドレス',
+    'password' => 'パスワード',
+    'remember_me' => '覚えてますか',
+    'logout' => 'ログアウト',
+    'toggle_navigation' => 'ナビゲーションの切り替え',
+    'dashboard' => 'ダッシュボード',
+    'menu' => 'メニュー',
+    'orders' => '注文',
+    'order' => '注文',
+    'search_item' => '検索項目',
+    'name' => '名',
+    'price' => '値段',
+    'available' => '利用可能',
+    'availability' => '可用性',
+    'image' => '写真',
+    'save' => '保存する',
+    'search_customer' => '顧客を検索',
+    'item' => '項目',
+    'quantity' => '量',
+    'total_price' => '合計金額',
+    'customer' => 'お客様',
+    'delivery_time' => '納期',
+    'action' => 'アクション',
+    'confirm_delivery' => '配達の確認',
+    'are_you_sure' => '本気ですか？',
+];
