@@ -13,24 +13,20 @@
 
 
 Route::post('set-locale', 'Web\SetLocaleController');
+Route::get('/', function(){
+    return redirect('/login');
+});
 
-Route::middleware(['locale'])->group(function () {
-    Route::get('/', function(){
-        return redirect('/login');
-    });
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-    // Authentication Routes...
-    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Auth\LoginController@login');
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::middleware(['auth'])->group(function () {
+	Route::get('dashboard', 'Web\DashboardController@index')->name('dashboard');
+	Route::resource('items', 'Web\ItemController')->except('index');
 
-    Route::middleware(['auth'])->group(function () {
-        Route::get('dashboard', 'Web\DashboardController@index')->name('dashboard');
-        Route::resource('items', 'Web\ItemController')->except('index');
-
-        Route::get('orders', 'Web\OrderController@index');
-        Route::post('orders/{id}', 'Web\OrderController@confirmDelivery');
-
-    });
+	Route::get('orders', 'Web\OrderController@index');
+	Route::post('orders/{id}', 'Web\OrderController@confirmDelivery');
 
 });
